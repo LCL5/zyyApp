@@ -1,47 +1,31 @@
 import { Component } from 'react'
+import Taro from "@tarojs/taro";
 import { connect } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text, Image} from '@tarojs/components'
+import { AtRadio } from 'taro-ui'
 
-import { add, minus, asyncAdd } from '../../actions/counter'
 
 import './index.less'
 
 
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
 class Index extends Component {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+
+  toMyPage(){
+    Taro.navigateTo({url:'/pages/bodyIdentify/bodyIdentify'})
   }
 
-  componentWillUnmount () { }
 
-  componentDidShow () { }
+render(){
 
-  componentDidHide () { }
+  return (
+    <View className='index'>
+      <view>
+        <Image src='https://img2.baidu.com/it/u=1728522718,1340994382&fm=26&fmt=auto&gp=0.jpg' onClick={this.toMyPage.bind(this)}></Image>
+      </view>
+    </View>
 
-  render () {
-    return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>你好呀</Text></View>
-      </View>
-    )
-  }
+  )
+}
 }
 
 export default Index
