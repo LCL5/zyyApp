@@ -1,11 +1,3 @@
-import { Component } from 'react'
-import Taro from "@tarojs/taro";
-import { connect } from 'react-redux'
-import { View, Button, Text, Image} from '@tarojs/components'
-import { AtRadio } from 'taro-ui'
-
-
-import './index.less'
 
 
 class Index extends Component {
