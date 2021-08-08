@@ -1,0 +1,17 @@
+.index-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.index-icons-box {
+  text-align: center;
+  width: 25%;
+  height: 100px;
+}
+.index-item {
+  width: 40px;
+  height: 40px;
+}
+/*# sourceMappingURL=indexIcon.css.map */

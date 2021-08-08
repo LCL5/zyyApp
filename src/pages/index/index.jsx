@@ -1,47 +1,77 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
-
-import { add, minus, asyncAdd } from '../../actions/counter'
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import {grant,getuser} from '../../common/auth'
+import Header from './header'
+import HomeSwiper from "./homeSwiper";
+import IndexIcon from "./indexIcon";
+import HomeMidCon from "./homeMidCon";
+import HomeHotList from "./homeHotList";
+import TabBar from "../common/tabBar"
 import './index.less'
 
-
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
 class Index extends Component {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+
+  constructor (props) {
+    super(props);
+    /*let screen_width = 750
+    let rate = Taro.getSystemInfoSync().screenHeight/Taro.getSystemInfoSync().screenWidth
+    this.state = {
+        screenTotalW: screen_width,
+        screenTotalH: screen_width * rate,
+    }*/
   }
 
-  componentWillUnmount () { }
+  componentDidMount() {
+    //判断用户登陆是否过期
+    Taro.checkSession({
+      success: function () {
+        //存在登陆态
+        //获取用户itemcode并存在本地中
+        // eslint-disable-next-line no-unused-vars
+        new Promise((resolve,reject)=> {
+          getuser()
+          resolve()
+        }).then(()=>{
+        })
+      },
+      fail: function () {
+        //不存在登陆态
+        //判断用户是否授权
+        grant()
+      }
+    })
 
-  componentDidShow () { }
+    //trigger gcj
+    Taro.getLocation({
+      type: 'gcj02',
+      // eslint-disable-next-line no-unused-vars
+      success: function (res) {
+      }
+    })
+  }
 
-  componentDidHide () { }
-
-  render () {
+  // style={`width:${this.state.screenTotalW}rpx;height:${this.state.screenTotalH}rpx`}
+  render() {
     return (
       <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>你好呀</Text></View>
+        <Header />
+        <HomeSwiper />
+        <IndexIcon />
+        <HomeMidCon />
+        <HomeHotList />
+        <TabBar tabBarCurrent={0} />
       </View>
     )
   }
+}
+
+Index.defaultProps = {
+}
+Index.propType = {
+  add: PropTypes.object,
+  dec: PropTypes.object
 }
 
 export default Index
