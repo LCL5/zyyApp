@@ -3,7 +3,7 @@ export default {
     'pages/index/index',
     'pages/bodyIdentify/bodyIdentify',
     'pages/bodyIdentify/test',
-    'pages/bodyIdentify/result'
+    'pages/bodyIdentify/result',
 
 
     'pages/myindex/index',
