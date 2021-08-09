@@ -55,7 +55,7 @@ class IndexIcon extends Component {
       case SMART:
         if(this.state.itemcode !=null){
           Taro.navigateTo({
-            url: '/pages/diagnosis/diagnosis'
+            url: '/pages/diagnosises/DStep1'
           });
         }else{
           Taro.navigateTo({url: '/pages/myRecord/wxLogin'})
