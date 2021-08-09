@@ -1,21 +1,44 @@
 import React, { Component }  from 'react'
 // 引入 AtIcon, AtRadio 组件
 import {View,Text,Picker,Button } from '@tarojs/components'
-import { AtRadio,AtSteps,AtList, AtListItem } from 'taro-ui'
-import './DStep1.less'
+import { AtCheckbox,AtSteps  } from 'taro-ui'
+import Taro from "@tarojs/taro";
 
 
-class DStep1 extends Component {
+
+class DStep2 extends Component {
+  DStep3(){
+    Taro.navigateTo({url:'../diagnosises/DStep3'})
+  }
   constructor () {
-    super(...arguments)
-    this.state = {
-      value: '1',
-      current: 0,
+      super(...arguments)
+      this.state = {
+        current: 0,
+        checkedList: ['list1']
+      }
+
+    this.checkboxOption = [{
+      value: 'list1',
+      label: '鼻塞',
+
+    },{
+      value: 'list2',
+      label: '头疼'
+    },{
+      value: 'list3',
+      label: '痰黄',
+    },{
+      value: 'list4',
+      label: '气短',
     }
+      ,{
+        value: 'list5',
+        label: '咳嗽',
+      }]
   }
   handleChange (value) {
     this.setState({
-      value
+      checkedList: value
     })
   }
   onChange (current) {
@@ -23,73 +46,42 @@ class DStep1 extends Component {
       current
     })
   }
-  onDateChange = e => {
-    this.setState({
-      dateSel: e.detail.value
-    })
-  }
   render () {
     const items = [
       {
+        title: '已完成',
+        status: 'success'
+      },
+      {
         title: '进行中',
-        status: 'success',
-        'icon': {
-          value: 'success',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
+        status: 'success'
       },
       {
         title: '待进行',
-        'icon': {
-          value: 'sound',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
-      },
-      {
-        title: '待进行',
-        'icon': {
-          value: 'sound',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
       }
     ]
+
     return (
+
       <View>
-        <view className="dis" >
-      <Text className="ddd">智能导诊</Text>
-      </view>
-        <AtSteps
+        <view> <AtSteps
           items={items}
           current={this.state.current}
           onChange={this.onChange.bind(this)}
-        />
-        <Text>性别</Text>
-        <AtRadio
-        options={[
-          { label: '男', value: 'option1' },
-          { label: '女', value: 'option2' }
-        ]}
-        value={this.state.value}
-        onClick={this.handleChange.bind(this)}/>
+        /></view>
+        <view ><AtCheckbox
+        options={this.checkboxOption}
+        selectedList={this.state.checkedList}
+        onChange={this.handleChange.bind(this)}
+        /></view>
         <view>
-          <Picker mode='date' onChange={this.onDateChange}>
-            <AtList>
-              <AtListItem title='出生日期' extraText={this.state.dateSel} start="1900-01-01" end="2055-01-01" />
-            </AtList>
-          </Picker>
-        </view>
-        <view className="next">
-          <Button type="primary" size="mini" circle="true">下一步</Button>
+          <view className="next1">
+            <Button  type='primary' size="mini" circle="true" onClick={this.DStep3.bind(this)}>下一步</Button>
+          </view>
         </view>
       </View>
 
     )
   }
 }
-export default DStep1
+export default DStep2

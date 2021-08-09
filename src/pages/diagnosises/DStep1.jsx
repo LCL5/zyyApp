@@ -2,10 +2,11 @@ import React, { Component }  from 'react'
 // 引入 AtIcon, AtRadio 组件
 import {View,Text,Picker,Button } from '@tarojs/components'
 import { AtRadio,AtSteps,AtList, AtListItem } from 'taro-ui'
-import './DStep3.less'
+import './DStep1.less'
+import Taro from "@tarojs/taro"
 
 
-class DStep3 extends Component {
+class DStep1 extends Component {
   constructor () {
     super(...arguments)
     this.state = {
@@ -28,37 +29,25 @@ class DStep3 extends Component {
       dateSel: e.detail.value
     })
   }
+  DStep2(){
+  Taro.navigateTo({url:'../diagnosises/DStep2'})
+}
   render () {
     const items = [
       {
         title: '进行中',
-        status: 'success',
-        'icon': {
-          value: 'success',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
+        status: 'success'
       },
       {
-        title: '待进行',
-        'icon': {
-          value: 'sound',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
+        title: '待进行'
       },
       {
-        title: '待进行',
-        'icon': {
-          value: 'sound',
-          activeColor: '#fff',
-          inactiveColor: '#78A4FA',
-          size: '14',
-        }
+        title: '待进行'
+
+
       }
     ]
+
     return (
       <View>
         <view className="dis" >
@@ -85,11 +74,11 @@ class DStep3 extends Component {
           </Picker>
         </view>
         <view className="next">
-          <Button type="primary" size="mini" circle="true">下一步</Button>
+          <Button  type='primary' size="mini" circle="true" onClick={this.DStep2.bind(this)}>下一步</Button>
         </view>
       </View>
 
     )
   }
 }
-export default DStep3
+export default DStep1
