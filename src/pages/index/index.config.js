@@ -1,3 +1,5 @@
 export default {
-  navigationBarTitleText: '首页'
+  navigationBarTitleText: '我的',
+  navigationBarBackgroundColor: '#775637' ,
+
 }
