@@ -13,4 +13,7 @@ export default {
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   }
+
+
+
 }
