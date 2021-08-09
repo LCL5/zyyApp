@@ -8,7 +8,7 @@ import { AtTabBar } from 'taro-ui'
 import { AtAvatar } from 'taro-ui'
 import Taro from "@tarojs/taro";
 import './mycollection.less'
-import Index from "../index";
+import Index from "../myindex";
 
 class Mycollection extends Component {
   componentWillReceiveProps(nextProps) {

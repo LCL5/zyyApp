@@ -8,7 +8,7 @@ import { AtTabBar } from 'taro-ui'
 import { AtAvatar } from 'taro-ui'
 import Taro from "@tarojs/taro";
 import './record.less'
-import Index from "../index";
+import Index from "../myindex";
 
 
 class Record extends Component {
