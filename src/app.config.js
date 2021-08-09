@@ -1,9 +1,9 @@
 export default {
   pages: [
-    'pages/Cost/cost',
-    'pages/ThePatient/addpatient',
-    'pages/MyRegister/myregister',
     'pages/Information/information',
+    'pages/ThePatient/addpatient',
+    'pages/Cost/cost',
+    'pages/MyRegister/myregister',
     'pages/MedicalRecord/medicalrecord',
     'pages/ThePatient/thepatient',
     'pages/HealthData/healthdata',
