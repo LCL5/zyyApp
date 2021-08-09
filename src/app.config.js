@@ -1,5 +1,12 @@
 export default {
   pages: [
+    'pages/Information/information',
+    'pages/ThePatient/addpatient',
+    'pages/Cost/cost',
+    'pages/MyRegister/myregister',
+    'pages/MedicalRecord/medicalrecord',
+    'pages/ThePatient/thepatient',
+    'pages/HealthData/healthdata',
     'pages/index/index',
     'pages/bodyIdentify/bodyIdentify',
     'pages/bodyIdentify/test',
@@ -13,7 +20,4 @@ export default {
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   }
-
-
-
 }
