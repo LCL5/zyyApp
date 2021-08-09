@@ -1,4 +1,4 @@
-<<<<<<< master
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
@@ -77,5 +77,3 @@ Index.propType = {
 
 export default Index
 
-=======
->>>>>>> master
