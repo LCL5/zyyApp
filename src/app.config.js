@@ -1,6 +1,7 @@
 export default {
   pages: [
-    'pages/index/index'
+    'pages/appoint/appoint',
+    'pages/appoint/appointHospital',
   ],
   window: {
     backgroundTextStyle: 'light',
