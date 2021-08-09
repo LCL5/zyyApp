@@ -1,7 +1,7 @@
 export default {
   pages: [
     'pages/appoint/appoint',
-    'pages/appoint/appointHospital',
+    'pages/appoint/appointHospital'
   ],
   window: {
     backgroundTextStyle: 'light',
