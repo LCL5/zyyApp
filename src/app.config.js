@@ -1,6 +1,6 @@
 export default {
   pages: [
-    'pages/index/index',
+    'pages/myindex/index',
     'pages/mycollection/mycollection',
     'pages/evaluate/evaluate',
     'pages/record/record',
